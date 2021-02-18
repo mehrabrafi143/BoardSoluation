@@ -7,7 +7,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using BoardSoluation.Data;
-using BoardSoluation.Persistance;
 using Microsoft.EntityFrameworkCore;
 
 namespace BoardSoluation.Controllers

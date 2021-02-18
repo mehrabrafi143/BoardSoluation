@@ -23,7 +23,7 @@
                                         @{
                                             for (int i = 1; i < 4; i++)
                                             {
-                                                var a = @school.Students.Count(s => s.Id == i);
+                                                var a = @school.Students.Count(s => s.Department.Id == i);
                                                 if (i == 1)
                                                 {
                                                     <li>Science [@a]</li>
