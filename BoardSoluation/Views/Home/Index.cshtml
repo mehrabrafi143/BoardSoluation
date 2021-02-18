@@ -1,0 +1,65 @@
+﻿@model StudentViewModel;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@using (@Html.BeginForm("Save", "Home", new { @class = "form row" }))
+{
+    <div class="col-4">
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email)
+            @Html.TextBoxFor(m => m.Email, new {@class="form-control", placeholder = @Model.Email})
+        </div>
+
+        <div class="form-group">
+            @Html.DropDownListFor(m => m.SchoolId, new SelectList(Model.Schools, "Id", "SchoolName"), "Select School", 
+                new { @class = "form-control schoolList" })
+            <div class="text-danger"> @Html.ValidationMessageFor(m => m.SchoolId)</div>
+        </div>
+        
+        <div class="form-group">
+            @Html.DropDownListFor(m => m.DepartmentId, new SelectList(Model.Departments, "Id", "DeptName"), "Select Department", 
+                new { @class = "form-control deptList" })
+            <div class="text-danger"> @Html.ValidationMessageFor(m => m.DepartmentId)</div>
+        </div>
+
+        <div class="form-group">
+            @Html.DropDownListFor(m => m.DistrictId, new SelectList(Model.Districts, "Id", "DistrictName"), "Select District", 
+                new { @class = "form-control districtList" })
+            <div class="text-danger"> @Html.ValidationMessageFor(m => m.DistrictId)</div>
+        </div>
+        
+        <div class="form-group">
+            @Html.DropDownListFor(m => m.DivisionId, new SelectList(Model.Divisions, "Id", "DivisionName"), "Select Division", 
+                new { @class = "form-control divisionList" })
+            <div class="text-danger"> @Html.ValidationMessageFor(m => m.DivisionId)</div>
+        </div>
+        
+            <button type="submit" class="btn btn-lg btn-info mt-3 btn-save">Save</button>
+    </div>
+}
+
+
+@section Scripts
+{
+    <script>
+
+        $('.chosen-container-single').css("width", "100%");
+
+        $(".schoolList").chosen({
+            allow_single_deselect: true
+        });
+
+        $(".deptList").chosen({
+            allow_single_deselect: true
+        });
+
+        $(".districtList").chosen({
+            allow_single_deselect: true
+        });
+
+        $(".divisionList").chosen({
+            allow_single_deselect: true
+        });
+    </script>
+}
